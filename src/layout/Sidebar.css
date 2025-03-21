@@ -1,0 +1,19 @@
+.sidebar {
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome, Safari, Edge */
+}
+
+.menu-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .menu-item:hover {
+    background-color: #8A7DF0 !important; /* Light purple hover */
+    color: white !important;
+  }
