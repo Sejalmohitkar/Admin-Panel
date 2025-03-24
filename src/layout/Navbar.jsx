@@ -3,8 +3,8 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import { FormControl, InputGroup, Button } from "react-bootstrap";
-import { FaBars, FaSearch, FaCog, FaBell, FaUserCircle } from "react-icons/fa";
-import Sidebar from "./Sidebar";
+import {FaSearch, FaCog, FaBell, FaUserCircle } from "react-icons/fa";
+import { Menu } from "lucide-react";
 
 // import { useState } from "react";
 // import myImage from '../assets/hero.png'
@@ -26,12 +26,13 @@ const Navbar1 = ({ toggleSidebar }) => {
       >
         <Container fluid className="">
           <Form className="d-flex flex-grow-1">
+           {/* Sidebar toggle button (only visible on mobile)  */}
             <Button
               variant="light"
               onClick={toggleSidebar}
               className="d-lg-none"
             >
-              <FaBars className="text-dark me-4 mt-3" />
+               <Menu size={24} />
             </Button>
             <InputGroup
               className="w-50"
