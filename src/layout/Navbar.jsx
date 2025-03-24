@@ -2,37 +2,46 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
-import { FormControl, InputGroup } from "react-bootstrap";
-import { FaSearch, FaCog, FaBell, FaUserCircle } from "react-icons/fa";
+import { FormControl, InputGroup, Button } from "react-bootstrap";
+import { FaBars, FaSearch, FaCog, FaBell, FaUserCircle } from "react-icons/fa";
+import Sidebar from "./Sidebar";
 
 // import { useState } from "react";
 // import myImage from '../assets/hero.png'
 
-const Navbar1 = () => {
+const Navbar1 = ({ toggleSidebar }) => {
   // const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div style={{ 
-      // backgroundImage: `url(${myImage})`, 
-      // backgroundSize: 'cover', 
-      // backgroundPosition: 'center', 
-      // height: '100vh',
-      backgroundColor: '#282743'
-    }}>
+    <div
+      style={{
+        backgroundColor: "#282743",
+      }}
+    >
       <Navbar
-      className='d-flex align-items-center px-4 py-2'
+        className="d-flex align-items-center px-4 py-2"
         // className={`d-flex align-items-center px-4 py-2 ${
         //   darkMode ? "bg-dark text-white" : "bg-white"
         // }`}
       >
         <Container fluid className="">
-          <Form className="d-flex flex-grow-1" >
-            <InputGroup className="w-50"  style={{
-          borderBottomLeftRadius: "20px",
-          borderBottomRightRadius: "20px",
-        }}>
+          <Form className="d-flex flex-grow-1">
+            <Button
+              variant="light"
+              onClick={toggleSidebar}
+              className="d-lg-none"
+            >
+              <FaBars className="text-dark me-4 mt-3" />
+            </Button>
+            <InputGroup
+              className="w-50"
+              style={{
+                borderBottomLeftRadius: "20px",
+                borderBottomRightRadius: "20px",
+              }}
+            >
               <InputGroup.Text>
-              <FaSearch />
+                <FaSearch />
               </InputGroup.Text>
               <FormControl
                 type="search"
@@ -47,17 +56,17 @@ const Navbar1 = () => {
         <div className="d-flex align-items-center gap-3">
           {/* Dark Mode Toggle */}
           <div className="form-check form-switch">
-            <input className="form-check-input" type="checkbox"/>
+            <input className="form-check-input" type="checkbox" />
             {/* checked={darkMode}
             onChange={() => setDarkMode(!darkMode)} */}
           </div>
 
-        {/* Icons */}
-        <FaCog size={24} className="cursor-pointer text-white" />
-        <FaBell size={24} className="cursor-pointer text-white" />
+          {/* Icons */}
+          <FaCog size={24} className="cursor-pointer text-white" />
+          <FaBell size={24} className="cursor-pointer text-white" />
 
-        {/* User Avatar */}
-        <FaUserCircle size={32} className="cursor-pointer text-white" />
+          {/* User Avatar */}
+          <FaUserCircle size={32} className="cursor-pointer text-white" />
         </div>
       </Navbar>
     </div>
