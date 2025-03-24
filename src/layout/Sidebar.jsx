@@ -17,13 +17,14 @@ import "./Sidebar.css";
 const Sidebar = ({ sidebarToggle }) => {
   return (
     <>
-        <div className= {`sidebar-container ${sidebarToggle ? "d-none d-lg-block" : "d-block"}`}>
+          <div className={`sidebar ${sidebarToggle ? "expanded" : "collapsed"} ${sidebarToggle ? "d-block" : "d-none d-lg-block"}`}>
+
           <div
             className= "sidebar text-white  p-4 rounded-end-4 overflow-auto d-flex flex-column"
             style={{ backgroundColor: "#6C60F3" }}
           >
             <div className="d-flex justify-content-center text-align-center fw-bold fs-5 mb-2">
-              <TfiBarChart size={22} />
+              <TfiBarChart size={22} /> 
             </div>
             <h4 className="logo text-center fw-bold fs-5 mb-3">RECREATE</h4>
 
@@ -33,42 +34,42 @@ const Sidebar = ({ sidebarToggle }) => {
                 className="menu-item active text-white d-flex align-items-center p-2 text-decoration-none hover:bg-light hover:text-dark rounded"
               >
                 <Home size={18} className="icon me-2" />
-                Dashboard
+                {sidebarToggle && <span>Dashboard</span>}
               </Link>
               <Link
                 to={"/order"}
                 className="menu-item active text-white d-flex align-items-center p-2 text-decoration-none hover:bg-light hover:text-dark rounded"
               >
                 <Package size={18} className="icon me-2" />
-                Users
+                {sidebarToggle && <span>Users</span>}
               </Link>
               <Link
                 to={"/revenue"}
                 className="menu-item active text-white d-flex align-items-center p-2 text-decoration-none hover:bg-light hover:text-dark rounded"
               >
                 <BarChart size={18} className="icon me-2" />
-                Revenue
+                {sidebarToggle && <span>Revenue</span>}
               </Link>
               <Link
                 to={"/hotDeals"}
                 className="menu-item active text-white d-flex align-items-center p-2 text-decoration-none hover:bg-light hover:text-dark rounded"
               >
                 <Flame size={18} className="icon me-2" />
-                Cards
+                {sidebarToggle && <span>Cards</span>}
               </Link>
               <Link
                 to={"/product"}
                 className="menu-item active text-white d-flex align-items-center p-2 text-decoration-none hover:bg-light hover:text-dark rounded"
               >
                 <Box size={18} className="icon me-2" />
-                My Products
+                {sidebarToggle && <span>My Products</span>}
               </Link>
               <Link
                 to={"/wishlist"}
                 className="menu-item active text-white d-flex align-items-center p-2 text-decoration-none hover:bg-light hover:text-dark rounded"
               >
                 <Heart size={18} className="icon me-2" />
-                Wishlist
+                {sidebarToggle && <span>Wishlist</span>}
               </Link>
             </Nav>
 
