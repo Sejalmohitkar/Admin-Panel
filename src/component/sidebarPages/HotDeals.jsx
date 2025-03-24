@@ -7,6 +7,7 @@ import {
   Button,
   Form,
   Modal,
+  Pagination,
 } from "react-bootstrap";
 import { Flame, Gift } from "lucide-react";
 import Sidebar from "../../layout/Sidebar";
@@ -20,6 +21,11 @@ function HotDeals() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+// Pagination //
+const [currentPage, setCurrentPage] = useState(1);
+const [postPerPage, SetPostPerPage] = useState(0);
+
 
   // Fetch data from API
   const loadData = async () => {
@@ -35,6 +41,12 @@ function HotDeals() {
   useEffect(() => {
     loadData();
   }, []);
+
+  // Pagination //
+
+  const lastPostIndex = CurrentPage * postMessage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPosts =  cards.slice(firstPostIndex, lastPostIndex)
 
   return (
     <div className="col-12 d-flex">
