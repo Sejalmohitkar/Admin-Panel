@@ -75,3 +75,5 @@ const Navbar1 = ({ toggleSidebar }) => {
 };
 
 export default Navbar1;
+
+
