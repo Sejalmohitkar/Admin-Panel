@@ -25,7 +25,6 @@ function Home() {
         </div>
         <div className="col-10">
           <Navbar1 toggleSidebar={() => setSidebarToggle(!sidebarToggle)} />
-
           <div>
             <Dashboard />
           </div>
