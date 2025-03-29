@@ -82,7 +82,7 @@ const Login = () => {
             </button>
           </div>
           <p className="text-end mt-2 ms-2">
-            Forgot <a href="#">Password?</a><Link to={"/registration"} href="#" className='ms-2'>Sign up</Link>
+            Forgot <a href="#">Password?</a><Link to={"/register"} href="#" className='ms-2'>Sign up</Link>
           </p>
         </form>
       </div>

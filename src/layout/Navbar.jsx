@@ -5,12 +5,12 @@ import Navbar from "react-bootstrap/Navbar";
 import { FormControl, InputGroup, Button } from "react-bootstrap";
 import {FaSearch, FaCog, FaBell, FaUserCircle } from "react-icons/fa";
 import { Menu } from "lucide-react";
-
-// import { useState } from "react";
-// import myImage from '../assets/hero.png'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar1 = ({ toggleSidebar }) => {
-  // const [darkMode, setDarkMode] = useState(false);
+
+  const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <div
@@ -20,13 +20,10 @@ const Navbar1 = ({ toggleSidebar }) => {
     >
       <Navbar
         className="d-flex align-items-center px-4 py-2"
-        // className={`d-flex align-items-center px-4 py-2 ${
-        //   darkMode ? "bg-dark text-white" : "bg-white"
-        // }`}
       >
         <Container fluid className="">
           <Form className="d-flex flex-grow-1">
-           {/* Sidebar toggle button (only visible on mobile)  */}
+            
             <Button
               variant="light"
               onClick={toggleSidebar}
@@ -58,8 +55,6 @@ const Navbar1 = ({ toggleSidebar }) => {
           {/* Dark Mode Toggle */}
           <div className="form-check form-switch">
             <input className="form-check-input" type="checkbox" />
-            {/* checked={darkMode}
-            onChange={() => setDarkMode(!darkMode)} */}
           </div>
 
           {/* Icons */}
@@ -67,7 +62,32 @@ const Navbar1 = ({ toggleSidebar }) => {
           <FaBell size={24} className="cursor-pointer text-white" />
 
           {/* User Avatar */}
-          <FaUserCircle size={32} className="cursor-pointer text-white" />
+          <div>
+          <FaUserCircle size={32} 
+          className="cursor-pointer text-white" 
+          onClick={() => setShowDropdown(!showDropdown)}
+          />
+          {showDropdown && (
+            <div
+            style={{
+              position: 'absolute',
+              right: 0,
+              top: '40px',
+              background: '#fff',
+              borderRadius: "8px",
+              boxShadow : '0 4px 8px rgba(0, 0, 0, 0.1)',
+              padding: '10px',
+              zIndex: 1000,
+              minWidth: '150px',
+            }}>
+             <Link to='/'> <Button variant='primary' className="w-100 mb-2 p-1">Login</Button></Link>
+             <Link to='/register'> <Button variant='primary' className="w-100">Signup</Button></Link>
+
+            </div>
+          )}
+
+          </div>
+          
         </div>
       </Navbar>
     </div>

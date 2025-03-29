@@ -1,12 +1,30 @@
-import React from "react";
+
 import Dashboard from "../component/Dashboard/Dashboard";
 import Sidebar from "../layout/Sidebar";
 import Navbar1 from "../layout/Navbar";
 import myImage from "../assets/hero.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Home() {
-  const [sidebarToggle, setSidebarToggle] = useState(false);
+  
+  const [sidebarToggle, setSidebarToggle] = useState(window.innerWidth < 992); // Mobile: collapsed
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 992) {
+        setSidebarToggle(true); // Collapse on mobile
+      } else {
+        setSidebarToggle(false); // Expand on larger screens
+      }
+    };
+
+    handleResize(); // Check on first load
+    window.addEventListener("resize", handleResize);
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+ 
 
   return (
     <>
@@ -21,10 +39,10 @@ function Home() {
         }}
       >
         <div className="col-2">
-          <Sidebar sidebarToggle={sidebarToggle} />
+          <Sidebar sidebarToggle={sidebarToggle} toggleSidebar={() => setSidebarToggle(!sidebarToggle)} />
         </div>
         <div className="col-10">
-          <Navbar1 toggleSidebar={() => setSidebarToggle(!sidebarToggle)} />
+          <Navbar1 toggleSidebar={() => setSidebarToggle(!sidebarToggle)}  />
           <div>
             <Dashboard />
           </div>

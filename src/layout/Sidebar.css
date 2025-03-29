@@ -1,8 +1,4 @@
-.sidebar {
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-  height: 100vh;
-  position: fixed;
-}
+
 
 .sidebar::-webkit-scrollbar {
   display: none; /* Hide scrollbar in Chrome, Safari, Edge */
@@ -17,5 +13,46 @@
     background-color: #8A7DF0 !important; /* Light purple hover */
     color: white !important;
   }
+
+  .sidebar {
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+  height: 100vh;
+  position: fixed;
+    width: 250px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar.icon-only {
+    width: 80px; /* Collapsed size */
+  }
+  
+  .sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sidebar.icon-only .menu-item span {
+    display: none; /* Hide text when collapsed */
+  }
+  
+  .sidebar .btn {
+    display: block;
+  }
+  
+  @media(min-width: 768px) and (max-width: 991px){ /* Mobile styles */
+    .sidebar {
+      width: 80px; /* Start as collapsed */
+    }
+  
+    .sidebar.icon-only {
+      width: 80px;
+    }
+  
+    .sidebar.full {
+      width: 250px;
+    }
+  }
+  
 
   
